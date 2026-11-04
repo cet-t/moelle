@@ -1,11 +1,11 @@
-# trng
+# fil
 
 A tiny, `no_std`, allocation-free abstraction for random number generators.
 
 ## Usage
 
 ```rust
-use trng::Rng;
+use fil::Rng;
 
 struct XorShift32 {
     state: u32,
