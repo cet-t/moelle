@@ -14,7 +14,7 @@ use crate::word::Word;
 /// impl moelle::Rng for MyRng32 {
 ///     type Word = u32;
 ///
-///     fn nextu(&mut self) -> Self::Word {
+///     fn next(&mut self) -> Self::Word {
 ///         self.0 = self.0.wrapping_add(1);
 ///         self.0
 ///     }
@@ -26,13 +26,13 @@ pub trait Rng {
 
     /// Returns the next unsigned output word.
     #[must_use]
-    fn nextu(&mut self) -> Self::Word;
+    fn next(&mut self) -> Self::Word;
 
     /// Returns a floating-point value in `[0.0, 1.0)`.
     #[must_use]
     #[inline]
-    fn nextf(&mut self) -> <Self::Word as crate::word::Word>::Float {
-        self.nextu().to_float()
+    fn uniform(&mut self) -> <Self::Word as crate::word::Word>::Float {
+        self.next().to_float()
     }
 
     /// Returns a signed integer in the inclusive range `[min, max]`.
@@ -48,7 +48,7 @@ pub trait Rng {
         min: <Self::Word as crate::word::Word>::Int,
         max: <Self::Word as crate::word::Word>::Int,
     ) -> <Self::Word as crate::word::Word>::Int {
-        self.nextu().randi(min, max)
+        self.next().randi(min, max)
     }
 
     /// Returns a floating-point value in `[min, max)` for finite bounds with
@@ -62,6 +62,6 @@ pub trait Rng {
         min: <Self::Word as crate::word::Word>::Float,
         max: <Self::Word as crate::word::Word>::Float,
     ) -> <Self::Word as crate::word::Word>::Float {
-        self.nextu().randf(min, max)
+        self.next().randf(min, max)
     }
 }
