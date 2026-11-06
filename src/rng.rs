@@ -11,7 +11,7 @@ use crate::word::Word;
 /// ```
 /// struct MyRng32(u32);
 ///
-/// impl fil::Rng for MyRng32 {
+/// impl moelle::Rng for MyRng32 {
 ///     type Word = u32;
 ///
 ///     fn nextu(&mut self) -> Self::Word {

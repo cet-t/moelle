@@ -1,11 +1,11 @@
-# fil
+# moelle
 
 A tiny, `no_std`, allocation-free abstraction for random number generators.
 
 ## Usage
 
 ```rust
-use fil::Rng;
+use moelle::Rng;
 
 struct XorShift32 {
     state: u32,
