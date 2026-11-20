@@ -49,6 +49,6 @@ fn main() {
   - If `2^N` is divisible by `range` (e.g., `range` is a power of two), the result is perfectly uniform.
   - Otherwise, each value is generated from either `floor(2^N / range)` or `ceil(2^N / range)` input words, so the probability of each value differs by at most `2^-N`.
   - The relative bias (the ratio of the highest to lowest probability) is `ceil / floor`, which is approximately `1 + range / 2^N` when `range` is much smaller than `2^N`. When `range` is slightly larger than `2^(N-1)`, this ratio can be up to 2:1.
-  - For perfect uniformity, apply rejection sampling in addition to `nextu`.
+  - For perfect uniformity, apply rejection sampling in addition to `next`.
 
 - `randi` assumes `min <= max` but does not check this condition.

@@ -2,7 +2,7 @@ use crate::word::Word;
 
 /// A random number generator that produces unsigned words of a fixed type.
 ///
-/// Implementors provide [`nextu`](Self::nextu); the remaining methods convert
+/// Implementors provide [`next`](Self::next); the remaining methods convert
 /// its output into floating-point values or bounded ranges.
 ///
 /// This trait does not guarantee statistical quality or cryptographic security.
